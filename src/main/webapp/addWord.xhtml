@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Add Words</title>
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"  />
+<h:outputStylesheet library="dist" name="css/AdminLTE.min.css"  />
+<h:outputStylesheet library="dist" name="css/skins/_all-skins.min.css"  />
+<h:outputStylesheet library="plugins" name="iCheck/flat/blue.css"  />
+<h:outputStylesheet library="plugins" name="morris/morris.css"  />
+<h:outputStylesheet library="plugins" name="jvectormap/jquery-jvectormap-1.2.2.css"  />
+<h:outputStylesheet library="plugins" name="datepicker/datepicker3.css"  />
+<h:outputStylesheet library="plugins" name="daterangepicker/daterangepicker-bs3.css"  />
+<h:outputStylesheet library="plugins" name="bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"  />
+
+<h:outputScript library="plugins" name="jQuery/jQuery-2.2.0.min.js" />
+<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+<h:outputScript library="plugins" name="sparkline/jquery.sparkline.min.js" />
+<h:outputScript library="plugins" name="morris/morris.min.js" />
+<h:outputScript library="plugins" name="jvectormap/jquery-jvectormap-1.2.2.min.js" />
+<h:outputScript library="plugins" name="jvectormap/jquery-jvectormap-world-mill-en.js" />
+<h:outputScript library="plugins" name="jvectormap/knob/jquery.knob.js" />
+<h:outputScript library="plugins" name="daterangepicker/daterangepicker.js" />
+<h:outputScript library="plugins" name="datepicker/bootstrap-datepicker.js" />
+<h:outputScript library="plugins" name="bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" />
+<h:outputScript library="plugins" name="slimScroll/jquery.slimscroll.min.js" />
+<h:outputScript library="plugins" name="fastclick/fastclick.js" />
+<h:outputScript library="dist" name="js/app.min.js" />
+<h:outputScript library="dist" name="js/pages/dashboard.js" />
+<h:outputScript library="dist" name="js/demo.js" />
+
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
+
+    </h:head>
+    <h:body>
+         <f:view>
+            
+            <ui:include src="userMainPage.html"/>
+        </f:view>
+           <f:view>
+            
+            <ui:include src="menu.html"/>
+        </f:view>
+        
+        
+        <div class="content-wrapper">
+            
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h:form>
+      <h4>Word:</h4>
+      <h:inputText id="word" value="#{word.native_word}" required="true" requiredMessage="The field 1Empty" class="form-control" style="width: 300px;"></h:inputText>
+      <h4>Translate</h4>
+      <h:inputText id="translate" value="#{word.translatre_word}" required="true" requiredMessage="The field 2Empty" class="form-control" style="width: 300px;"></h:inputText>
+     <br/>
+      <h:commandButton action="#{word.checkResult}" class="btn btn-block btn-primary" style="width: 100px;"
+			value="Add"> 
+   <!--  <f:param name="vocab_id" value="{param['id']}" /> -->
+      </h:commandButton>
+      
+     <h:panelGroup binding="#{word.resultPanel}" rendered="false">
+      <h:message for="result"></h:message>
+    </h:panelGroup>
+      </h:form>
+    </section>
+
+    
+   
+    <!-- Main content -->
+   
+    <!-- /.content -->
+  </div>
+        
+      
+        
+        
+        
+         <f:view>
+            
+            <ui:include src="footerUserMainPage.html"/>
+        </f:view>
+    </h:body>
+</html>
+

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+     
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <h:head>
+        <title>Registration</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href='https://fonts.googleaontspis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'/>
+        
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />
+        <h:outputStylesheet library="css" name="font-awesome.min.css"  />
+        <h:outputStylesheet library="css" name="animate.min.css"  />
+        <h:outputStylesheet library="css" name="et-line-font.css"  />
+        <h:outputStylesheet library="css" name="nivo-lightbox.css"  />
+        <h:outputStylesheet library="css" name="nivo_themes/default/default.css"  />
+        <h:outputStylesheet library="css" name="style.css"  />
+
+        <h:outputScript library="js" name="jquery.js" />
+        <h:outputScript library="js" name="bootstrap.min.js" />
+        <h:outputScript library="js" name="smoothscroll.js" />
+        <h:outputScript library="js" name="isotope.js" />
+        <h:outputScript library="js" name="imagesloaded.min.js" />
+        <h:outputScript library="js" name="nivo-lightbox.min.js" />
+        <h:outputScript library="js" name="jquery.backstretch.min.js" />
+        <h:outputScript library="js" name="wow.min.js" />
+        <h:outputScript library="js" name="custom.js" />
+        
+        <script type="text/javascript">
+            function handleComplete() {
+                arr = document.getElementsByName('registerForm:success');
+                $('#alert_placeholder').append('<div  id="alert_div" class="alert alert-block alert-success"> <a class="close" data-dismiss="alert" href="#">X</a><h4 class="alert-heading">' + arr.length + '</h4></div>')
+                setTimeout(function () { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+                    $("#alertdiv").remove();
+                }, 5000);
+            }         
+        </script>
+        
+    </h:head>
+    
+    <h:body>
+        <f:view>
+            <ui:include src="registration.html"/>
+        </f:view>
+
+        <section id="pricing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <div class="section-title">
+                            <h1 class="heading bold">REGISTRATION</h1>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3" >
+                        <div class="plan plan-one wow bounceIn" data-wow-delay="0.3s" >
+                            <h:form id="registerForm">  
+                               <!-- <h:message for="RegisterGroupPanel" style="color:red;" />-->
+                                <h:panelGrid id="RegisterGroupPanel" class="col-md-6 col-md-offset-3">
+                                        <div class="col-md-12 col-sm-9">
+                                            <h:inputText id="fname" value="#{user.name}" required="true" a:type="text" a:placeholder="Name" class="form-control" requiredMessage="Please enter your name">
+                                                <f:validateLength minimum="1" maximum="50" />
+                                            </h:inputText>     
+                                           <!-- <h:messages for="fname" style="color:red;"/>-->
+                                        </div>                          
+                                        <div class="col-md-12 col-sm-9">
+                                            <h:inputSecret id="email" 
+                                                           value="#{user.email}" 
+                                                           required="true" 
+                                                           a:type="email" 
+                                                           class="form-control" 
+                                                           p:placeholder="Email" 
+                                                           requiredMessage="Please enter your password"
+                                                           validatorMessage="Invalid email format">
+                                               <!-- <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />-->
+                                               <f:validator validatorId="emailValidator" />
+                                            </h:inputSecret> 
+                                                <!--<h:messages for="email" style="color:red;"/>-->
+                                        </div>
+                                        <div class="col-md-12 col-sm-9">
+                                            <h:inputSecret id="psw" 
+                                                           value="#{user.password}" 
+                                                           required="true" 
+                                                           a:type="password" 
+                                                           class="form-control" 
+                                                           p:placeholder="Password" 
+                                                           requiredMessage="Please enter your password">
+                                                <f:validator validatorId="passwordValidator" />
+                                                <f:validateLength minimum="8" maximum="50" />
+                                                <f:attribute name="pswrep" value="#{pswrep}" />
+                                            </h:inputSecret>
+                                            <h:messages for="psw" style="color:red;"/>
+                                        </div>
+                                        <div class="col-md-12 col-sm-9">
+                                            <h:inputSecret id="pswrep"  
+                                                           required="true" 
+                                                           a:type="password" 
+                                                           class="form-control" 
+                                                           p:placeholder="Confirm Password" 
+                                                           requiredMessage="Please enter your password" 
+                                                           binding="#{pswrep}">
+                                                <f:validateLength minimum="8" maximum="50" />
+                                            </h:inputSecret> 
+                                        </div>
+                                 <!--  <h:message for="pswrep" style="color: red;" />-->
+                                </h:panelGrid>
+                                <h:commandButton value="REGISTER" action="#{user.add}" class="btn btn-warning">
+                                    <f:ajax execute="@form" render="@form" />
+                                </h:commandButton>
+                                <div id="alert_placeholder"></div>
+                                <h:messages id="success" style="color:#009988"/>
+                                <h:messages id="unsuccess" style="color:#337ab7"/>
+                            </h:form> 
+                        </div>
+                    </div>
+                </div>
+            </div>		
+        </section>
+        <f:view>
+            <ui:include src="footer.html"/>
+        </f:view>
+    </h:body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+	http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+<navigation-rule>
+		<from-view-id>/home.xhtml</from-view-id>
+
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>/register.xhtml</to-view-id>
+		</navigation-case>
+                 
+                
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+
+		<navigation-case>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/admin.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-outcome>main_page</from-outcome>
+			<to-view-id>/main_page.xhtml</to-view-id>
+		</navigation-case>
+                 <navigation-case>
+			<from-outcome>invalid</from-outcome>
+			<to-view-id>/error.xhtml</to-view-id>
+		</navigation-case>
+                
+	</navigation-rule>
+
+       <navigation-rule> 
+           <from-view-id>test.xhtml</from-view-id> 
+           <navigation-case> 
+               <from-outcome>success</from-outcome> 
+               <to-view-id>result.xhtml</to-view-id> 
+           </navigation-case> 
+       </navigation-rule> 
+       
+       <navigation-rule> 
+           <from-view-id>register.xhtml</from-view-id> 
+           <navigation-case> 
+               <from-outcome>success</from-outcome> 
+               <to-view-id>/login.xhtml</to-view-id> 
+           </navigation-case> 
+           <navigation-case> 
+               <from-outcome>unsuccess</from-outcome> 
+               <to-view-id>/error.xhtml</to-view-id> 
+           </navigation-case> 
+       </navigation-rule> 
+       
+       <managed-bean>
+    <managed-bean-name>currentDate</managed-bean-name>
+    <managed-bean-class>java.util.Date</managed-bean-class>
+   <managed-bean-scope>application</managed-bean-scope>
+</managed-bean>
+      <!-- <managed-bean>
+  <managed-bean-name>userBean</managed-bean-name>
+  <managed-bean-class>com.beans.UserBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>-->
+       
+
+</faces-config>

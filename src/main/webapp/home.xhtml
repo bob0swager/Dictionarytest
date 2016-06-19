@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <title>Testing dictionary</title>
+<!--<style type="text/css">BODY{ background-color: #D8D8D8;}</style>-->
+
+
+	<link href='https://fonts.googleaontspis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'/>
+
+    
+<h:outputStylesheet library="css" name="bootstrap.min.css"  />
+<h:outputStylesheet library="css" name="font-awesome.min.css"  />
+<h:outputStylesheet library="css" name="animate.min.css"  />
+<h:outputStylesheet library="css" name="et-line-font.css"  />
+<h:outputStylesheet library="css" name="nivo-lightbox.css"  />
+<h:outputStylesheet library="css" name="nivo_themes/default/default.css"  />
+<h:outputStylesheet library="css" name="style.css"  />
+
+<h:outputScript library="js" name="jquery.js" />
+<h:outputScript library="js" name="bootstrap.min.js" />
+<h:outputScript library="js" name="smoothscroll.js" />
+<h:outputScript library="js" name="isotope.js" />
+<h:outputScript library="js" name="imagesloaded.min.js" />
+<h:outputScript library="js" name="nivo-lightbox.min.js" />
+<h:outputScript library="js" name="jquery.backstretch.min.js" />
+<h:outputScript library="js" name="wow.min.js" />
+<h:outputScript library="js" name="custom.js" />
+
+
+
+
+
+
+
+
+
+
+
+    </h:head>
+    <h:body>
+        <f:view>
+            
+            <ui:include src="index.html"/>
+        </f:view>
+        
+        <h:panelGrid  columns="2" border="1" cellpadding="10"
+                      cellspacing="1">
+            <f:facet name="header">
+                <h:outputText value="Welcome to the Java and J2EE Tutor" />
+            </f:facet>
+            <h:outputLabel value="Already a user" />
+            <h:outputLink value="login.jsf">Sign In</h:outputLink>
+            <h:outputLabel value="Not a member yet" />
+            <h:outputLink value="register.xhtml">Sign Up</h:outputLink>
+            <f:facet name="footer">
+                <h:panelGroup style="display:block; text-align:center">
+                    <h:outputLabel value="Created by Amzi" />
+                </h:panelGroup>
+            </f:facet>
+        </h:panelGrid>
+        
+    
+    </h:body>
+</html>

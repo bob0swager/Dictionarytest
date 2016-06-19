@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      >
+  
+    <h:head>
+        <title>Test</title>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"  />
+<h:outputStylesheet library="dist" name="css/AdminLTE.min.css"  />
+<h:outputStylesheet library="dist" name="css/skins/_all-skins.min.css"  />
+<h:outputStylesheet library="plugins" name="iCheck/flat/blue.css"  />
+<h:outputStylesheet library="plugins" name="morris/morris.css"  />
+<h:outputStylesheet library="plugins" name="jvectormap/jquery-jvectormap-1.2.2.css"  />
+<h:outputStylesheet library="plugins" name="datepicker/datepicker3.css"  />
+<h:outputStylesheet library="plugins" name="daterangepicker/daterangepicker-bs3.css"  />
+<h:outputStylesheet library="plugins" name="bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"  />
+
+<h:outputScript library="plugins" name="jQuery/jQuery-2.2.0.min.js" />
+<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+<h:outputScript library="plugins" name="sparkline/jquery.sparkline.min.js" />
+<h:outputScript library="plugins" name="morris/morris.min.js" />
+<h:outputScript library="plugins" name="jvectormap/jquery-jvectormap-1.2.2.min.js" />
+<h:outputScript library="plugins" name="jvectormap/jquery-jvectormap-world-mill-en.js" />
+<h:outputScript library="plugins" name="jvectormap/knob/jquery.knob.js" />
+<h:outputScript library="plugins" name="daterangepicker/daterangepicker.js" />
+<h:outputScript library="plugins" name="datepicker/bootstrap-datepicker.js" />
+<h:outputScript library="plugins" name="bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" />
+<h:outputScript library="plugins" name="slimScroll/jquery.slimscroll.min.js" />
+<h:outputScript library="plugins" name="fastclick/fastclick.js" />
+<h:outputScript library="dist" name="js/app.min.js" />
+<h:outputScript library="dist" name="js/pages/dashboard.js" />
+<h:outputScript library="dist" name="js/demo.js" />
+
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
+  <style>
+     .radio{
+    margin-right: 7px;
+}
+      </style>
+<script>
+function onCall() {
+   $("div#mesg").hide();
+
+    var message = "#{test.message}";
+    if(message == "error")
+    {
+ document.getElementById("mainForm:submit").remove(); 
+ document.getElementById("mainForm:reset").remove(); 
+ $("div#mesg").show();
+    }
+    
+}
+</script>
+  
+    </h:head>
+    <h:body onload="onCall()">
+    	<f:view>
+            
+            <ui:include src="userMainPage.html"/>
+        </f:view>
+        <f:view>
+            
+            <ui:include src="menu.html"/>
+        </f:view>
+ 
+   
+     
+      
+     <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    	<h:form id="mainForm">
+           
+            <div class="box-body">
+          <ui:repeat var="item" value="#{test.test}" class="form-group">
+             
+              <h4 class="box-title" style="margin-bottom:-10px;"> 
+                   #{item.numberQuestion}. #{item.question}
+              </h4>
+            
+                <h:selectOneRadio value="#{item.humanAnswer}" >   
+                    <label>
+                        
+                    <f:selectItem itemValue="#{item.answers[0]}" itemLabel="#{item.answers[0]}&nbsp; &nbsp;" class="minimal"/>
+                 
+                    </label>
+                     <label>
+                        
+                    <f:selectItem itemValue="#{item.answers[1]}" itemLabel="#{item.answers[1]}&nbsp; &nbsp;" class="minimal"/>
+                    </label>
+                  
+                     <label>
+                        
+                    <f:selectItem itemValue="#{item.answers[2]}" itemLabel="#{item.answers[2]}&nbsp; &nbsp;" class="minimal"/>                      
+   		
+                     </label>
+                    </h:selectOneRadio>
+                </ui:repeat>
+                 
+           </div>
+            
+           <!--    <ui:repeat var="item" value="{test.createTest()}">
+                {item.numberQuestion}. {item.question}
+                <h:selectOneRadio value="{item.correctAnswer}">              
+                    <f:selectItem itemValue="{item.answers[0]}" itemLabel="{item.answers[0]}" />
+                    <f:selectItem itemValue="{item.answers[1]}" itemLabel="{item.answers[1]}" />
+                    <f:selectItem itemValue="{item.answers[2]}" itemLabel="{item.answers[2]}" />
+   		</h:selectOneRadio>
+               </ui:repeat>-->
+           
+           
+           
+           
+           
+           <h:commandButton id="submit" value="Submit" action="result" class="btn  btn-info" style="width:100px;"/>&nbsp; &nbsp;
+		<h:commandButton id="reset" value="Reset" type="reset" class="btn  btn-warning" style="width:100px;"/>
+                
+                <div id="mesg" class="callout callout-info">
+          <h4>Error!</h4>
+
+          <p><h:messages id="success" /></p>
+        </div>
+    
+    <h:inputHidden id="message" value="#{test.message}" /> 
+    	</h:form>
+        
+    </section>
+     </div>
+        <f:view>
+            
+            <ui:include src="footerUserMainPage.html"/>
+        </f:view>
+    </h:body>
+</html>
+
