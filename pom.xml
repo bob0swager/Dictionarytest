@@ -10,10 +10,7 @@
 
 	<name>JSF_Login_Logout</name>
      
-  <properties>
-    <appengine.target.version>1.9.38</appengine.target.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
+
 
 
 	<dependencies>
