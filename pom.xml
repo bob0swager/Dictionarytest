@@ -9,10 +9,19 @@
 	<packaging>war</packaging>
 
 	<name>JSF_Login_Logout</name>
-        
+     
+  <properties>
+    <appengine.target.version>1.9.38</appengine.target.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
 
 
 	<dependencies>
+     <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-api-1.0-sdk</artifactId>
+        <version>${appengine.target.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -89,6 +98,20 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.34</version>
 		</dependency>
+    
+     <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-testing</artifactId>
+        <version>${appengine.target.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-api-stubs</artifactId>
+        <version>${appengine.target.version}</version>
+        <scope>test</scope>
+    </dependency>
+    
 	</dependencies>
 
 	<build>
@@ -102,10 +125,10 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-      <plugin>
+       <plugin>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
-            <version>1.9.38</version>
+            <version>${appengine.target.version}</version>
         </plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
