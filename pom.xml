@@ -158,7 +158,7 @@
                 </execution>
             </executions>
         </plugin>
-                       
+              <pluginRepositories> <pluginRepository> <id>google-snapshots</id> <name>Google Snapshots</name> <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url> <snapshots> <enabled>true</enabled> </snapshots> <releases> <enabled>false</enabled> </releases> </pluginRepository> </pluginRepositories>         
 		</plugins>
                 
 		<finalName>${project.artifactId}</finalName>
