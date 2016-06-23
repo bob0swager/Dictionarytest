@@ -17,6 +17,7 @@
 
 
 	<dependencies>
+    
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
