@@ -101,7 +101,7 @@
         <artifactId>appengine-testing</artifactId>
         <version>1.9.17</version>
         <scope>test</scope>
-    </dependency>
+    </dependency>-->
    <!-- <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-api-stubs</artifactId>
