@@ -96,7 +96,7 @@
 			<version>5.1.34</version>
 		</dependency>
     
-     <dependency>
+   <!--  <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-testing</artifactId>
         <version>1.9.17</version>
@@ -107,7 +107,7 @@
         <artifactId>appengine-api-stubs</artifactId>
         <version>1.9.18</version>
         <scope>test</scope>
-    </dependency>-
+    </dependency>-->
     
 	</dependencies>
 
