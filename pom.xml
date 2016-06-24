@@ -17,7 +17,7 @@
      <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-api-1.0-sdk</artifactId>
-        <version>${appengine.target.version}</version>
+        <version>1.9.30</version>
     </dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -99,13 +99,13 @@
      <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-testing</artifactId>
-        <version>${appengine.target.version}</version>
+        <version>1.9.17</version>
         <scope>test</scope>
     </dependency>
     <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-api-stubs</artifactId>
-        <version>${appengine.target.version}</version>
+        <version>1.9.18</version>
         <scope>test</scope>
     </dependency>
     
