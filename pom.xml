@@ -105,7 +105,7 @@
     <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-api-stubs</artifactId>
-        <version>${appengine.target.version}</version>
+        <version>}</version>
         <scope>test</scope>
     </dependency>
     
