@@ -99,7 +99,7 @@
      <dependency>
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-testing</artifactId>
-        <version>${appengine.target.version</version>
+        <version>1</version>
         <scope>test</scope>
     </dependency>
     <dependency>
